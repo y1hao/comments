@@ -1,6 +1,0 @@
-# Title
-
-{items}
-
----
-{pagination}

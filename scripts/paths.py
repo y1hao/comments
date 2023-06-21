@@ -1,12 +1,12 @@
 import os
-from datetime import datetime
+from datetime import date
 from functools import cache
 
 # Override this for testing
 BASE_PATH = None
 
 # Override this for testing
-DATE = datetime.now()
+DATE = date.today()
 
 SRC = "src"
 INDEX = "index"
@@ -46,10 +46,9 @@ def pages() -> str:
     """Returns the path for the pages folder"""
     return os.path.join(index(), PAGES)
 
-@cache
-def tags() -> str:
-    """Returns the path for the tags folder"""
-    return os.path.join(index(), TAGS)
+def rel(path: str, start: str) -> str:
+    """Return the relative path to be used in markdown files"""
+    return os.path.relpath(path, start).replace(os.path.sep, "/")
 
 def snippet_path(folder_name: str) -> str:
     """Returns the absolute path for a snippet given the folder name"""

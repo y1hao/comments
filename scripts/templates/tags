@@ -1,1 +1,10 @@
-# Tags for this snippet, one per line
+# Tags for this snippet, one per line.
+#
+# The tag `draft` marks this snippet as a draft.
+# Drafts are not shown on pages but can be found
+# in tags and archive.
+#
+# Tags can not contain spaces, otherwise it will
+# be ignored.
+
+draft

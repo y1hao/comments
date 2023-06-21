@@ -16,7 +16,11 @@ def new(folder_name: str):
     os.makedirs(snippet_path, exist_ok=True)
 
     # Create README.md
-    readme = template.load("README.md").replace("{title}", folder_name)
+
+    home_link = f"[Home]({paths.rel(paths.base(), snippet_path)}/README.md)"
+    readme = (template.load("README.md")
+              .replace("{title}", folder_name)
+              .replace("{home_link}", home_link))
     with open(os.path.join(snippet_path, "README.md"), "x", encoding="utf-8") as file:
         file.write(readme)
 

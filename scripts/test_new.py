@@ -1,7 +1,7 @@
 import importlib
 import os
 import shutil
-from datetime import datetime
+from datetime import date
 from unittest import TestCase
 from unittest.mock import patch
 
@@ -16,7 +16,7 @@ class TestNew(TestCase):
         importlib.reload(paths)
 
     @patch("paths.BASE_PATH", "test_base")
-    @patch("paths.DATE", datetime(1994, 7, 22))
+    @patch("paths.DATE", date(1994, 7, 22))
     def test_new(self: TestCase):
         try:
             expected_folder = os.path.join("test_base", "src", "1994", "7", "22", "a_test_folder")

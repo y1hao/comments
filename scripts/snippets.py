@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import date
 from typing import FrozenSet, Iterable, Tuple
 from glob import glob
 import os
@@ -13,7 +13,7 @@ class Snippet:
     """Represent a code snippet"""
     title: str
     summary: str
-    created: datetime
+    created: date
     tags: FrozenSet[str]
     path: str
     is_draft: bool
@@ -22,7 +22,7 @@ def get_all() -> Iterable[Snippet]:
     """Get all snippets in the repository"""
     for snippet_folder_with_date in glob("*/*/*/*", root_dir=paths.src()):
         year, month, day, name = snippet_folder_with_date.split(os.path.sep)
-        created = datetime(int(year), int(month), int(day))
+        created = date(int(year), int(month), int(day))
 
         title, summary = _readme(snippet_folder_with_date)
         if title == "":
@@ -51,8 +51,9 @@ def _readme(folder_with_date: str) -> Tuple[str, str]:
         if title.startswith("#"):
             title = title.lstrip("#").strip()
 
-        # summary is the second non-empty line, or empty if there is only title
-        if len(lines) < 2:
+        # summary is the second non-empty line, or empty if there is no content
+        # between the title and a "---"
+        if len(lines) < 2 or lines[1] == "---":
             return (title, "")
 
         return (title, lines[1])
@@ -64,7 +65,7 @@ def _tags(folder_with_date: str) -> Iterable[str]:
     with open(tags, encoding="utf-8") as file:
         for line in file:
             line = line.strip()
-            if len(line) > 0 and not line.startswith("#"):
+            if len(line) > 0 and not line.startswith("#") and not ' ' in line:
                 yield line
 
 def _file_path(folder_with_date: str, filename: str) -> str:
