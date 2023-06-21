@@ -9,7 +9,7 @@ def load(template_name: str) -> str:
     with open(_path(template_name), encoding="utf-8") as template:
         return template.read()
 
-def copy(template_name: str, dst: str):
+def copy(template_name: str, dst: str) -> None:
     """Copy a template file to the dst location"""
     shutil.copy(_path(template_name), dst)
 

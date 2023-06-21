@@ -5,7 +5,7 @@ new:
 	$(PYTHON) ./scripts/new.py $(NAME)
 
 .PHONY: sync
-sync:
+sync: test
 	$(PYTHON) ./scripts/sync.py
 
 .PHONY: test

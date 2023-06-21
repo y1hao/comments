@@ -1,15 +1,16 @@
 import os
 import sys
+from datetime import date
 
 import paths
 import template
 
 
-def new(folder_name: str):
+def new(folder_name: str) -> None:
     """Create a new snippet folder with the given folder name"""
 
     # Create path
-    snippet_path = paths.snippet_path(folder_name)
+    snippet_path = paths.snippet_path(folder_name, date.today())
     if os.path.exists(snippet_path):
         print(f"The folder '{snippet_path}' already exists. Try another name.", file=sys.stderr)
         sys.exit(1)

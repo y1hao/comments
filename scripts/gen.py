@@ -1,9 +1,8 @@
-from snippets import Snippet
-from typing import Iterable, Tuple
-import urllib.parse
+from typing import Iterable, Tuple, List, Callable
 
-import template
 import paths
+import template
+from snippets import Snippet
 
 SnippetPage = Iterable[Snippet]
 SnippetsByYear = Iterable[Tuple[int, Iterable[Snippet]]]
@@ -13,7 +12,7 @@ def gen_page(
         snippets: SnippetPage, 
         total_pages: int,
         current_page: int, 
-        current_path) -> str:
+        current_path: str) -> str:
     """Generate contents on one page"""
     templ = template.load("page.md")
     header = _gen_header(current_path)
@@ -28,7 +27,7 @@ def gen_archive(snippets_by_year: SnippetsByYear) -> str:
     current_path = paths.index()
     templ = template.load("archive.md")
     header = _gen_header(current_path)
-    items = []
+    items: List[str] = []
     for year, snippets in snippets_by_year:
         items.append(f"## {year}")
         for snippet in snippets:
@@ -42,9 +41,9 @@ def gen_tags(snippets_by_tag: SnippetsByTag) -> str:
     templ = template.load("tags.md")
     header = _gen_header(current_path)
     all_tags = _gen_all_tags(tag for tag, _ in snippets_by_tag)
-    items = []
+    items: List[str] = []
     for tag, snippets in snippets_by_tag:
-        items.append(f"## #{tag}\n")
+        items.append(f"## `{tag}`\n")
         for snippet in snippets:
             items.append(_gen_item(snippet, current_path, show_summary=False))
         items.append("")
@@ -62,8 +61,8 @@ def _gen_item(
         snippet: Snippet, 
         current_path: str, 
         show_summary: bool = True) -> str:
-    link = f"{paths.rel(paths.snippet_path(snippet.path), current_path)}/README.md"
-    parts = []
+    link = f"{paths.rel(paths.snippet_path(snippet.path, snippet.created), current_path)}/README.md"
+    parts: List[str] = []
     parts.append(f"- __[{snippet.title}]({link})__")
     parts.append(f"  _`{snippet.created}`_")
     parts.append(f"  {_gen_tags(snippet, current_path)}\n")
@@ -72,10 +71,13 @@ def _gen_item(
         parts.append(f"  > {snippet.summary}")
     return "\n".join(parts)
 
-def _gen_pagination(total_pages: int, current_page: int, current_path: str) -> str:
-    make_link = lambda p: f"{paths.rel(paths.pages(), current_path)}/{p}.md"
+def _gen_pagination(
+        total_pages: int, 
+        current_page: int, 
+        current_path: str) -> str:
+    make_link: Callable[[str], str] = lambda p: f"{paths.rel(paths.pages(), current_path)}/{p}.md"
     
-    links = []
+    links: List[str] = []
     has_newer = current_page != 1
     has_older = current_page != total_pages
 
@@ -94,10 +96,10 @@ def _gen_pagination(total_pages: int, current_page: int, current_path: str) -> s
     return " | ".join(links)
 
 def _gen_all_tags(tags: Iterable[str]) -> str:
-    make_tag = lambda t: f"[#{t}](#{t})"
+    make_tag: Callable[[str], str] = lambda t: f"[#{t}](#{t})"
     return " ".join(make_tag(tag) for tag in tags)
 
 def _gen_tags(snippet: Snippet, current_path: str) -> str:
-    make_tag = lambda t: f"[#{t}]({paths.rel(paths.index(), current_path)}/tags.md#{t})"
+    make_tag: Callable[[str], str] = lambda t: f"[#{t}]({paths.rel(paths.index(), current_path)}/tags.md#{t})"
     links = [make_tag(t) for t in sorted(snippet.tags)]
     return " ".join(links)

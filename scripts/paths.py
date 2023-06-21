@@ -5,9 +5,6 @@ from functools import cache
 # Override this for testing
 BASE_PATH = None
 
-# Override this for testing
-DATE = date.today()
-
 SRC = "src"
 INDEX = "index"
 PAGES = "pages"
@@ -50,7 +47,7 @@ def rel(path: str, start: str) -> str:
     """Return the relative path to be used in markdown files"""
     return os.path.relpath(path, start).replace(os.path.sep, "/")
 
-def snippet_path(folder_name: str) -> str:
+def snippet_path(folder_name: str, date: date) -> str:
     """Returns the absolute path for a snippet given the folder name"""
-    y, m, d = DATE.year, DATE.month, DATE.day
+    y, m, d = date.year, date.month, date.day
     return os.path.join(src(), str(y), str(m), str(d), folder_name)

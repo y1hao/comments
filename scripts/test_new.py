@@ -16,8 +16,9 @@ class TestNew(TestCase):
         importlib.reload(paths)
 
     @patch("paths.BASE_PATH", "test_base")
-    @patch("paths.DATE", date(1994, 7, 22))
-    def test_new(self: TestCase):
+    @patch("new.date")
+    def test_new(self: TestCase, mock_date):
+        mock_date.today.return_value = date(1994, 7, 22)
         try:
             expected_folder = os.path.join("test_base", "src", "1994", "7", "22", "a_test_folder")
             expected_readme = os.path.join(expected_folder, "README.md")
