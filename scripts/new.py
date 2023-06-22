@@ -28,7 +28,7 @@ def new(folder_name: str) -> None:
     # Create tags file
     template.copy("tags", os.path.join(snippet_path, "tags"))
 
-    print(f"Snippet folder created: '{snippet_path}'")
+    print(f"Snippet folder created: '{snippet_path}'.")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

@@ -15,7 +15,9 @@ PAGE_SIZE = 10
 
 def sync() -> None:
     """Synchronize the indexes"""
+    print("Grabbing snippets...")
     all_snippets = sorted(snippets.get_all(), key=lambda s: s.created, reverse=True)
+    print(f"{len(all_snippets)} found.")
 
     by_year = sorted(((year, snippets) 
                       for year, snippets in _by_year(all_snippets)),
@@ -29,10 +31,20 @@ def sync() -> None:
                    _by_page([snippet for snippet in all_snippets 
                              if not snippet.is_draft]))
 
+    print("Generating README.md...")
     _gen_home(by_page[0], len(by_page))
+
+    print("Generating pages...")
     _gen_pages(by_page)
+    print(f"{len(by_page)} pages generated.")
+
+    print("Generating archive.md...")
     _gen_archive(by_year)
+
+    print("Generating tags.md...")
     _gen_tags(by_tag)
+
+    print("Synchonization finished.")
 
 def _gen_home(snippets: SnippetPage, total_pages: int) -> None:
     current_path = paths.base()
