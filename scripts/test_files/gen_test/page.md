@@ -13,5 +13,4 @@
 
   > Summary 2
 
----
 1 | [2](index/pages/2.md) | [Older](index/pages/2.md)

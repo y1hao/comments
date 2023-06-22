@@ -1,8 +1,6 @@
 # Typing a Helper Function
 
-How I typed a helper function for interface key manipulation, highlighting the usage of `infer` to retrieve a part of a longer string literal type.
-
----
+How I typed a helper function for interface key manipulation, highlighting the usage of `infer` to retrieve a part of a longer string literal type.·
 
 ## Context
 

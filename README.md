@@ -6,7 +6,6 @@
   _`2023-06-22`_
   [TypeScript](index/tags.md#TypeScript)
 
-  > How I typed a helper function for interface key manipulation, highlighting the usage of `infer` to retrieve a part of a longer string literal type.
+  > How I typed a helper function for interface key manipulation, highlighting the usage of `infer` to retrieve a part of a longer string literal type.·
 
----
 1
