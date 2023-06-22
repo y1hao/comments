@@ -15,7 +15,7 @@ class TestSnippets(TestCase):
         importlib.reload(paths)
 
     @patch("paths.BASE_PATH", os.path.join("scripts", "test_files", "snippet_test"))
-    def test_get_all(self: TestCase):
+    def test_get_all(self):
         expected = [
             snippets.Snippet("Test Snippet 1", "Summary 1", date(2023, 6, 19), frozenset(), "test_snippet_1", False),
             snippets.Snippet("Test Snippet 2", "", date(2023, 6, 19), frozenset(["draft", "random"]), "test_snippet_2", True),

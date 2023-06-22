@@ -8,7 +8,7 @@ from snippets import Snippet
 
 
 class TestGen(TestCase):
-    def test_gen_page(self: TestCase):
+    def test_gen_page(self):
         snippets = [
                 Snippet("Snippet 1", "Summary 1", date(1994, 7, 22), frozenset(["Hello"]), "s1", False),
                 Snippet("Snippet 2", "Summary 2", date(1994, 7, 27), frozenset(["Hello"]), "s2", False)
@@ -21,7 +21,7 @@ class TestGen(TestCase):
             got = page.strip()
             self.assertEqual(got, expected)
 
-    def test_gen_archive(self: TestCase):
+    def test_gen_archive(self):
         snippets = [
             (2021, [
                 Snippet("Snippet 1", "Summary 1", date(2021, 7, 22), frozenset(["Hello"]), "s1", False),
@@ -37,7 +37,7 @@ class TestGen(TestCase):
             got = gen.gen_archive(snippets).strip()
             self.assertEqual(got, expected)
 
-    def test_gen_tag(self: TestCase):
+    def test_gen_tag(self):
         snippets = [
             ("hello", [
                 Snippet("Snippet 1", "Summary 1", date(2021, 7, 22), frozenset(["hello"]), "s1", False),

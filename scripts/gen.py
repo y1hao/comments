@@ -43,7 +43,7 @@ def gen_tags(snippets_by_tag: SnippetsByTag) -> str:
     all_tags = _gen_all_tags(tag for tag, _ in snippets_by_tag)
     items: List[str] = []
     for tag, snippets in snippets_by_tag:
-        items.append(f"## `{tag}`\n")
+        items.append(f"## {tag}\n")
         for snippet in snippets:
             items.append(_gen_item(snippet, current_path, show_summary=False))
         items.append("")
@@ -96,10 +96,10 @@ def _gen_pagination(
     return " | ".join(links)
 
 def _gen_all_tags(tags: Iterable[str]) -> str:
-    make_tag: Callable[[str], str] = lambda t: f"[#{t}](#{t})"
-    return " ".join(make_tag(tag) for tag in tags)
+    make_tag: Callable[[str], str] = lambda t: f"[{t}](.#{t})"
+    return "All tags: " + ", ".join(make_tag(tag) for tag in tags)
 
 def _gen_tags(snippet: Snippet, current_path: str) -> str:
-    make_tag: Callable[[str], str] = lambda t: f"[#{t}]({paths.rel(paths.index(), current_path)}/tags.md#{t})"
+    make_tag: Callable[[str], str] = lambda t: f"[{t}]({paths.rel(paths.index(), current_path)}/tags.md#{t})"
     links = [make_tag(t) for t in sorted(snippet.tags)]
-    return " ".join(links)
+    return ", ".join(links)

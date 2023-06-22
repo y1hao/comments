@@ -65,8 +65,8 @@ def _by_year(snippets: SnippetPage) -> SnippetsByYear:
 def _by_tag(snippets: SnippetPage) -> SnippetsByTag:
     all_tags = reduce(lambda ts, s: ts.union(s.tags), snippets, set())
     for tag in all_tags:
-        snippets_with_tag = (snippet for snippet in snippets 
-                             if tag in snippet.tags)
+        snippets_with_tag = [snippet for snippet in snippets 
+                             if tag in snippet.tags]
         yield tag, snippets_with_tag
 
 def _by_page(snippets: List[Snippet]) -> Iterable[SnippetPage]:

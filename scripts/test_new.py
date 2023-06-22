@@ -17,7 +17,7 @@ class TestNew(TestCase):
 
     @patch("paths.BASE_PATH", "test_base")
     @patch("new.date")
-    def test_new(self: TestCase, mock_date):
+    def test_new(self, mock_date):
         mock_date.today.return_value = date(1994, 7, 22)
         try:
             expected_folder = os.path.join("test_base", "src", "1994", "7", "22", "a_test_folder")

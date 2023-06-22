@@ -14,12 +14,12 @@ class TestPaths(TestCase):
         importlib.reload(paths)
 
     @patch("paths.BASE_PATH", "base")
-    def test_snippet_path(self: TestCase):
+    def test_snippet_path(self):
         want = os.path.join("base", "src", "1994", "1", "1", "hello")
         got = paths.snippet_path("hello", date(1994, 1, 1))
         self.assertEqual(got, want)
 
-    def test_rel(self: TestCase):
+    def test_rel(self):
         cases = [
             (os.path.join("base"), os.path.join("base", "1", "2"), "../.."),
             (os.path.join("base", "1", "2"), os.path.join("base"), "1/2"),
