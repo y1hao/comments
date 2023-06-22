@@ -2,7 +2,7 @@
 
 [Home](../README.md) | [Archive](./archive.md) | [Tags](./tags.md)
 
-All tags: [TypeScript](.#TypeScript)
+All tags: [TypeScript](./tags.md#TypeScript)
 
 ## TypeScript
 

@@ -96,7 +96,7 @@ def _gen_pagination(
     return " | ".join(links)
 
 def _gen_all_tags(tags: Iterable[str]) -> str:
-    make_tag: Callable[[str], str] = lambda t: f"[{t}](.#{t})"
+    make_tag: Callable[[str], str] = lambda t: f"[{t}](./tags.md#{t})"
     return "All tags: " + ", ".join(make_tag(tag) for tag in tags)
 
 def _gen_tags(snippet: Snippet, current_path: str) -> str:

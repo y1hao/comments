@@ -2,7 +2,7 @@
 
 [Home](../README.md) | [Archive](./archive.md) | [Tags](./tags.md)
 
-All tags: [hello](.#hello), [world](.#world)
+All tags: [hello](./tags.md#hello), [world](./tags.md#world)
 
 ## hello
 
