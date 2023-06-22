@@ -1,4 +1,4 @@
-# Code Snippets and Notes
+# Code Comments
 
 [Home](./README.md) | [Archive](index/archive.md) | [Tags](index/tags.md)
 

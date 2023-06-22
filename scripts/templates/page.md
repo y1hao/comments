@@ -1,4 +1,4 @@
-# Code Snippets and Notes
+# Code Comments
 
 {header}
 
