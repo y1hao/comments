@@ -2,7 +2,14 @@
 
 [Home](../README.md) | [Archive](./archive.md) | [Tags](./tags.md)
 
-All tags: [TypeScript](./tags.md#TypeScript)
+All tags: [C#](./tags.md#C#), [TypeScript](./tags.md#TypeScript)
+
+## C#
+
+- __[Make a Python-Style `range` in C# with Tuples and Duck Typing](../src/2023/6/24/python_style_range/README.md)__
+  _`2023-06-24`_
+  [C#](./tags.md#C#)
+
 
 ## TypeScript
 

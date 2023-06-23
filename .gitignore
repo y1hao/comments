@@ -1,1 +1,11 @@
 **/__pycache__
+
+**/node_modules
+
+**/.vs
+**/.vscode
+**/.idea
+
+**/bin
+**/obj
+**/*.suo
