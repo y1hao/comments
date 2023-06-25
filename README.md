@@ -6,7 +6,7 @@
   _`2023-06-25`_
   [C#](index/tags.md#C#), [concurrency](index/tags.md#concurrency), [functional-programming](index/tags.md#functional-programming), [pattern](index/tags.md#pattern)
 
-  > How designing with immutability helps avoid race condition and invalidates in C# concurrent programming.
+  > How designing with immutability helps avoid race conditions and invalid states in C# concurrent programming.
 - __[Make a Python-Style `range` in C# with Tuples and Duck Typing](src/2023/6/24/python_style_range/README.md)__
   _`2023-06-24`_
   [C#](index/tags.md#C#), [fun](index/tags.md#fun)

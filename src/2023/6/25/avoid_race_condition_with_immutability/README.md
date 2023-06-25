@@ -1,6 +1,6 @@
 # Avoid Race Conditions and Invalid States with Immutability
 
-How designing with immutability helps avoid race condition and invalidates in C# concurrent programming.
+How designing with immutability helps avoid race conditions and invalid states in C# concurrent programming.
 
 ## Context
 
