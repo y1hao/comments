@@ -7,7 +7,7 @@
 # Tags can not contain spaces, otherwise it will
 # be ignored.
 
-CSharp
+csharp
 concurrency
 functional-programming
 pattern
