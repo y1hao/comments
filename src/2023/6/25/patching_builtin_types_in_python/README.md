@@ -1,6 +1,6 @@
 # Patching a Built-in Type in Python
 
-Demostrates how to monkey-patch a built-in type.
+Demostrates how to monkey-patch a built-in type, and make it work for literals as well.
 
 In Python you can make modifications to built-in types by `import builtins`. However, the modification does not apply to literals. For example:
 

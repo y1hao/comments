@@ -11,7 +11,7 @@
   _`2023-06-25`_
   [`fun`](index/tags.md#fun), [`python`](index/tags.md#python), [`reference`](index/tags.md#reference)
 
-  > Demostrates how to monkey-patch a built-in type.
+  > Demostrates how to monkey-patch a built-in type, and make it work for literals as well.
 - __[Make a Python-Style `range` in C# with Tuples and Duck Typing](src/2023/6/24/python_style_range/README.md)__
   _`2023-06-24`_
   [`csharp`](index/tags.md#csharp), [`fun`](index/tags.md#fun)
