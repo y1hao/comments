@@ -4,12 +4,12 @@
 
 - __[Avoid Race Conditions and Invalid States with Immutability](src/2023/6/25/avoid_race_condition_with_immutability/README.md)__
   _`2023-06-25`_
-  [C#](index/tags.md#C#), [concurrency](index/tags.md#concurrency), [functional-programming](index/tags.md#functional-programming), [pattern](index/tags.md#pattern)
+  [CSharp](index/tags.md#CSharp), [concurrency](index/tags.md#concurrency), [functional-programming](index/tags.md#functional-programming), [pattern](index/tags.md#pattern)
 
   > How designing with immutability helps avoid race conditions and invalid states in C# concurrent programming.
 - __[Make a Python-Style `range` in C# with Tuples and Duck Typing](src/2023/6/24/python_style_range/README.md)__
   _`2023-06-24`_
-  [C#](index/tags.md#C#), [fun](index/tags.md#fun)
+  [CSharp](index/tags.md#CSharp), [fun](index/tags.md#fun)
 
   > How to take advantage of duck-typing in C# to turn a Tuple into a Python-style `range` which can be iterated over by `foreach`.
 - __[Typing a Helper Function](src/2023/6/22/typing_a_helper_function/README.md)__
