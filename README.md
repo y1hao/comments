@@ -7,6 +7,11 @@
   [`concurrency`](index/tags.md#concurrency), [`csharp`](index/tags.md#csharp), [`functional-programming`](index/tags.md#functional-programming), [`pattern`](index/tags.md#pattern)
 
   > How designing with immutability helps avoid race conditions and invalid states in C# concurrent programming.
+- __[Patching a Built-in Type in Python](src/2023/6/25/patching_builtin_types_in_python/README.md)__
+  _`2023-06-25`_
+  [`fun`](index/tags.md#fun), [`python`](index/tags.md#python), [`reference`](index/tags.md#reference)
+
+  > Demostrates how to monkey-patch a built-in type.
 - __[Make a Python-Style `range` in C# with Tuples and Duck Typing](src/2023/6/24/python_style_range/README.md)__
   _`2023-06-24`_
   [`csharp`](index/tags.md#csharp), [`fun`](index/tags.md#fun)
