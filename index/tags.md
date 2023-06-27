@@ -42,6 +42,10 @@ All tags: [`concurrency`](./tags.md#concurrency), [`csharp`](./tags.md#csharp), 
 
 ## pattern
 
+- __[Write an Exhaustive `switch` Statement in TypeScript](../src/2023/6/27/exhaustive_switch/README.md)__
+  _`2023-06-27`_
+  [`pattern`](./tags.md#pattern), [`typescript`](./tags.md#typescript)
+
 - __[Avoid Race Conditions and Invalid States with Immutability](../src/2023/6/25/avoid_race_condition_with_immutability/README.md)__
   _`2023-06-25`_
   [`concurrency`](./tags.md#concurrency), [`csharp`](./tags.md#csharp), [`functional-programming`](./tags.md#functional-programming), [`pattern`](./tags.md#pattern)
@@ -62,6 +66,10 @@ All tags: [`concurrency`](./tags.md#concurrency), [`csharp`](./tags.md#csharp), 
 
 
 ## typescript
+
+- __[Write an Exhaustive `switch` Statement in TypeScript](../src/2023/6/27/exhaustive_switch/README.md)__
+  _`2023-06-27`_
+  [`pattern`](./tags.md#pattern), [`typescript`](./tags.md#typescript)
 
 - __[Typing a Helper Function](../src/2023/6/22/typing_a_helper_function/README.md)__
   _`2023-06-22`_
