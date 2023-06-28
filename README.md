@@ -2,6 +2,11 @@
 
 [Home](./README.md) | [Archive](index/archive.md) | [Tags](index/tags.md)
 
+- __[The Go Implementation of LRU Cache](src/2023/6/28/lru/README.md)__
+  _`2023-06-28`_
+  [`algorithm`](index/tags.md#algorithm), [`go`](index/tags.md#go), [`note`](index/tags.md#note), [`reference`](index/tags.md#reference)
+
+  > Notes from reading Hashicorp's [golang-lru](https://github.com/hashicorp/golang-lru) repository.
 - __[Write an Exhaustive `switch` Statement in TypeScript](src/2023/6/27/exhaustive_switch/README.md)__
   _`2023-06-27`_
   [`pattern`](index/tags.md#pattern), [`typescript`](index/tags.md#typescript)

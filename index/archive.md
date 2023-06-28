@@ -3,6 +3,10 @@
 [Home](../README.md) | [Archive](./archive.md) | [Tags](./tags.md)
 
 ## 2023
+- __[The Go Implementation of LRU Cache](../src/2023/6/28/lru/README.md)__
+  _`2023-06-28`_
+  [`algorithm`](./tags.md#algorithm), [`go`](./tags.md#go), [`note`](./tags.md#note), [`reference`](./tags.md#reference)
+
 - __[Write an Exhaustive `switch` Statement in TypeScript](../src/2023/6/27/exhaustive_switch/README.md)__
   _`2023-06-27`_
   [`pattern`](./tags.md#pattern), [`typescript`](./tags.md#typescript)
