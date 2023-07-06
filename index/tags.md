@@ -2,21 +2,7 @@
 
 [Home](../README.md) | [Archive](./archive.md) | [Tags](./tags.md)
 
-All tags: [`React`](./tags.md#React), [`WebAssembly`](./tags.md#WebAssembly), [`algorithm`](./tags.md#algorithm), [`concurrency`](./tags.md#concurrency), [`csharp`](./tags.md#csharp), [`fun`](./tags.md#fun), [`functional-programming`](./tags.md#functional-programming), [`go`](./tags.md#go), [`note`](./tags.md#note), [`pattern`](./tags.md#pattern), [`python`](./tags.md#python), [`reference`](./tags.md#reference), [`typescript`](./tags.md#typescript)
-
-## React
-
-- __[A Pitfall when Using `useState` for Loading a Function](../src/2023/7/6/usestate_with_function/README.md)__
-  _`2023-07-06`_
-  [`React`](./tags.md#React), [`WebAssembly`](./tags.md#WebAssembly)
-
-
-## WebAssembly
-
-- __[A Pitfall when Using `useState` for Loading a Function](../src/2023/7/6/usestate_with_function/README.md)__
-  _`2023-07-06`_
-  [`React`](./tags.md#React), [`WebAssembly`](./tags.md#WebAssembly)
-
+All tags: [`algorithm`](./tags.md#algorithm), [`concurrency`](./tags.md#concurrency), [`csharp`](./tags.md#csharp), [`fun`](./tags.md#fun), [`functional-programming`](./tags.md#functional-programming), [`go`](./tags.md#go), [`note`](./tags.md#note), [`pattern`](./tags.md#pattern), [`python`](./tags.md#python), [`react`](./tags.md#react), [`reference`](./tags.md#reference), [`typescript`](./tags.md#typescript), [`webAssembly`](./tags.md#webAssembly)
 
 ## algorithm
 
@@ -93,6 +79,13 @@ All tags: [`React`](./tags.md#React), [`WebAssembly`](./tags.md#WebAssembly), [`
   [`fun`](./tags.md#fun), [`python`](./tags.md#python), [`reference`](./tags.md#reference)
 
 
+## react
+
+- __[A Pitfall when Using `useState` for Loading a Function](../src/2023/7/6/usestate_with_function/README.md)__
+  _`2023-07-06`_
+  [`react`](./tags.md#react), [`webAssembly`](./tags.md#webAssembly)
+
+
 ## reference
 
 - __[The Go Implementation of LRU Cache](../src/2023/6/28/lru/README.md)__
@@ -113,5 +106,12 @@ All tags: [`React`](./tags.md#React), [`WebAssembly`](./tags.md#WebAssembly), [`
 - __[Typing a Helper Function](../src/2023/6/22/typing_a_helper_function/README.md)__
   _`2023-06-22`_
   [`typescript`](./tags.md#typescript)
+
+
+## webAssembly
+
+- __[A Pitfall when Using `useState` for Loading a Function](../src/2023/7/6/usestate_with_function/README.md)__
+  _`2023-07-06`_
+  [`react`](./tags.md#react), [`webAssembly`](./tags.md#webAssembly)
 
 

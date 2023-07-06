@@ -5,7 +5,7 @@
 ## 2023
 - __[A Pitfall when Using `useState` for Loading a Function](../src/2023/7/6/usestate_with_function/README.md)__
   _`2023-07-06`_
-  [`React`](./tags.md#React), [`WebAssembly`](./tags.md#WebAssembly)
+  [`react`](./tags.md#react), [`webAssembly`](./tags.md#webAssembly)
 
 - __[The Go Implementation of LRU Cache](../src/2023/6/28/lru/README.md)__
   _`2023-06-28`_
