@@ -2,7 +2,21 @@
 
 [Home](../README.md) | [Archive](./archive.md) | [Tags](./tags.md)
 
-All tags: [`algorithm`](./tags.md#algorithm), [`concurrency`](./tags.md#concurrency), [`csharp`](./tags.md#csharp), [`fun`](./tags.md#fun), [`functional-programming`](./tags.md#functional-programming), [`go`](./tags.md#go), [`note`](./tags.md#note), [`pattern`](./tags.md#pattern), [`python`](./tags.md#python), [`reference`](./tags.md#reference), [`typescript`](./tags.md#typescript)
+All tags: [`React`](./tags.md#React), [`WebAssembly`](./tags.md#WebAssembly), [`algorithm`](./tags.md#algorithm), [`concurrency`](./tags.md#concurrency), [`csharp`](./tags.md#csharp), [`fun`](./tags.md#fun), [`functional-programming`](./tags.md#functional-programming), [`go`](./tags.md#go), [`note`](./tags.md#note), [`pattern`](./tags.md#pattern), [`python`](./tags.md#python), [`reference`](./tags.md#reference), [`typescript`](./tags.md#typescript)
+
+## React
+
+- __[A Pitfall when Using `useState` for Loading a Function](../src/2023/7/6/usestate_with_function/README.md)__
+  _`2023-07-06`_
+  [`React`](./tags.md#React), [`WebAssembly`](./tags.md#WebAssembly)
+
+
+## WebAssembly
+
+- __[A Pitfall when Using `useState` for Loading a Function](../src/2023/7/6/usestate_with_function/README.md)__
+  _`2023-07-06`_
+  [`React`](./tags.md#React), [`WebAssembly`](./tags.md#WebAssembly)
+
 
 ## algorithm
 

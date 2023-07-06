@@ -2,6 +2,11 @@
 
 [Home](./README.md) | [Archive](index/archive.md) | [Tags](index/tags.md)
 
+- __[A Pitfall when Using `useState` for Loading a Function](src/2023/7/6/usestate_with_function/README.md)__
+  _`2023-07-06`_
+  [`React`](index/tags.md#React), [`WebAssembly`](index/tags.md#WebAssembly)
+
+  > Normally the `useState` hook in React can be used with the `useEffect` hook to initialize a state when a component load (that is, lazy loading). However, when the state to be loaded is a function, there is a pitfall.
 - __[The Go Implementation of LRU Cache](src/2023/6/28/lru/README.md)__
   _`2023-06-28`_
   [`algorithm`](index/tags.md#algorithm), [`go`](index/tags.md#go), [`note`](index/tags.md#note), [`reference`](index/tags.md#reference)
