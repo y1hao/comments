@@ -37,7 +37,7 @@ def _readme(folder_with_date: str) -> Tuple[str, str]:
     if not os.path.exists(readme):
         print(f"Skipping {folder_with_date}: README.md not found")
         return ("", "")
-    
+
     with open(readme, encoding="utf-8") as file:
 
         # title is the first non-empty line
@@ -56,7 +56,7 @@ def _readme(folder_with_date: str) -> Tuple[str, str]:
         if len(lines) < 2 or lines[1] == "---":
             return (title, "")
 
-        return (title, lines[1])
+        return (title, lines[1].lstrip(">").strip())
 
 def _tags(folder_with_date: str) -> Iterable[str]:
     tags = _file_path(folder_with_date, "tags")
