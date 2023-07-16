@@ -3,7 +3,7 @@
 [Home](../README.md) | [Archive](./archive.md) | [Tags](./tags.md)
 
 ## 2023
-- __[12 C# Features You Should Know for Writing LeetCode Solutions More Elegantly](../src/2023/7/15/leetcode_tricks_csharp/README.md)__
+- __[Twelve C# Features You Should Know to Write More Elegant LeetCode Solutions](../src/2023/7/15/leetcode_tricks_csharp/README.md)__
   _`2023-07-15`_
   [`algorithm`](./tags.md#algorithm), [`csharp`](./tags.md#csharp), [`draft`](./tags.md#draft)
 
