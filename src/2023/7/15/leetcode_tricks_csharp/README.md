@@ -277,6 +277,7 @@ Needless to say, LINQ is one of the most loved features in C#. These LINQ method
       .OrderBy(pair => -pair.Item2)
       .ToList();
   ```
+  This technique is useful for questions that give you two arrays whose indices are associated, such as [2542. Maximum Subsequence Score](https://leetcode.com/problems/maximum-subsequence-score).
 
 
 ## 6. `Stack`, `Queue`, `LinkedList`
