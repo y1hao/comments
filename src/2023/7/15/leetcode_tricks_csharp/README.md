@@ -1,10 +1,10 @@
-# Twelve C# Features You Should Know to Write More Elegant LeetCode Solutions
+# Ten C# Features You Should Know to Write More Elegant LeetCode Solutions
 
-> 12 tricks I learned from solving 200+ LeetCode problems in C#, which can help you write solutions in a more elegant and idiomatic way.
+> 10 tricks I learned from solving 200+ LeetCode problems in C#, which can help you write solutions in a more elegant and idiomatic way.
 
 Well, C# isn't the most popular language of choice when it comes to LeetCoding. You can find solutions in Python and/or Java to almost all problems, but only occasionally can you see solutions in C#. Even when there is a C# solution, often it just looks like a direct translation from Java. But in fact, C# is an expressive language and is continuously evolving. There are quite some nice language features that can help you write LeetCode solutions in a faster and more elegant way.
 
-Here I'd like to share with you the 12 tricks I learned from solving 200+ LeetCode problems in C#.
+Here I'd like to share with you the 10 tricks I learned from solving 200+ LeetCode problems in C#.
 
 ## 1. 2D arrays
 
@@ -160,7 +160,7 @@ var b = 2;
 (a, b) = (b, a); // now a == 2, b == 1
 ```
 
-## 4. Nested mothods
+## 4. Nested methods
 
 Sometimes you need a private method that takes a few more arguments, and the public method just delegates the computation to this private method with some initial values. If the private method requires some common arguments, such as the memo dictionary for dynamic programming, you should consider using a nested inner method, so you don't have to pass some variable each time:
 
@@ -189,7 +189,7 @@ public int MinCostClimbingStairs(int[] cost)
     }
 
     return MinCosts(cost, cost.Length);
-    }
+}
 ```
 
 The above is a top-down dynamic programming implementation of [746. Min Cost Climbing Stairs
@@ -200,9 +200,9 @@ The above is a top-down dynamic programming implementation of [746. Min Cost Cli
 Needless to say, LINQ is one of the most loved features in C#. These LINQ methods are handy for LeetCoding:
 
 - ### `Select`
-  Project one sequence to another:
+  Projecting one sequence to another:
   ```csharp
-  // Cast the input int array to long
+  // Cast the input int array to long in order to prevent overflows
   var ns = inputs.Select(n => (long)n);
   ```
 
@@ -213,18 +213,11 @@ Needless to say, LINQ is one of the most loved features in C#. These LINQ method
   ```
 
 - ### `Aggregate`
-  Accumulate elements:
+  Accumulating elements:
   ```csharp
-  // intevals is an array of array representing intervals.
-  var intervals = new int[][]
-  {
-      new[] { 1, 2 },
-      new[] { 2, 3 },
-      new[] { 1, 3 },
-      new[] { 4, 6 }
-  };
-
-  var totalLength = intervals.Aggregate(0, (acc, cur) => acc + cur[1] - cur[0]);
+  // Note: might overflow when n is big
+  // See 9. BigInteger to address this
+  int Factorial(int n) => Enumerable.Range(1, n).Aggregate(1, (acc, cur) => acc * cur);
   ```
 
   Most of times though, using `Sum` is more convenient, see below.
@@ -236,7 +229,17 @@ Needless to say, LINQ is one of the most loved features in C#. These LINQ method
   var max = inputs.Max();
   var sum = inputs.Sum();
   
+  // intevals is an array of array representing intervals.
+  var intervals = new int[][]
+  {
+      new[] { 1, 2 },
+      new[] { 2, 3 },
+      new[] { 1, 3 },
+      new[] { 4, 6 }
+  };
+
   int Len(int[] interval) => interval[1] - interval[0];
+
   var shortest = intervals.MinBy(Len);
   var longest = intervals.MaxBy(Len);
   var totalLength = intervals.Sum(Len);
@@ -246,11 +249,23 @@ Needless to say, LINQ is one of the most loved features in C#. These LINQ method
   ```csharp
   // sort by start point, then by end point
   var sorted = intervals.SortBy(interval => interval[0])
-    .ThenBy(interval => interval[1]);
+      .ThenBy(interval => interval[1]);
 
   // for each start point, pick the shortest one
   var shortestForEachStartPoint = intervals.GroupBy(interval => interval[0])
-    .Select(group => group.OrderBy(interval => interval[1]).First());
+      .Select(group => group.OrderBy(interval => interval[1]).First());
+  ```
+
+  Note that using LINQ does have some performance panalty. Since the inputs of LeetCode problems are often plain arrays, consider directly using `Array.Sort` for sorting, which sorts the array in-place and is thus more efficient than `OrderBy` and `ThenBy`. `Array.Sort` can also take a lambda function as the Comparison:
+
+  ```csharp
+  var arr = new int[] { 3, 4, 5, 1, 2 };
+
+  // sort ascending:
+  Array.Sort(arr);
+
+  // sort descending:
+  Array.Sort(arr, (a, b) => b - a);
   ```
 
 - ### `Zip`
@@ -259,44 +274,138 @@ Needless to say, LINQ is one of the most loved features in C#. These LINQ method
   // Accociate two input arrays, nums1 and nums2 together,
   // and then sort descending according to elements in nums2
   var elements = nums1.Zip(nums2)
-    .OrderBy(pair => -pair.Item2)
-    .ToList();
+      .OrderBy(pair => -pair.Item2)
+      .ToList();
   ```
 
-Note that using LINQ does have some performance panalty. For example, when the input is an array rather than a List, you should probably directly sort the array in-place. See below.
 
-## 6. Array.Sort
+## 6. `Stack`, `Queue`, `LinkedList`
 
-Because often the inputs of LeetCode problems are arrays rather than Lists, using `Array.Sort` is often more efficient than doing `OrderBy` and `ThenBy` because it does the sorting in-place. One thing to note is that the `Array.Sort` methods can take a lambda function as the Comparison:
+Both `Stack` and `Queue` are array-based. They are useful when dealing with problems that require Depth-First Search (DFS) and Breath-First Search (BFS), repectively.
+
+Technically speaking, because you can only access the top of a stack, it is replaceable with simply an index plus a List, or an array if the max capacity is known:
 
 ```csharp
-var arr = new int[] { 3, 4, 5, 1, 2 };
-
-// sort ascending:
-Array.Sort(arr);
-
-// sort descending:
-Array.Sort(arr, (a, b) => b - a);
+var stack = new Stack<int>();
+stack.Push(3);
+var n = stack.Pop();
 ```
 
-## 7. Array.BinarySearch
+is equivalent to:
 
-Using Comparator
+```csharp
+var stack = new int[10];
+var index = 0;
 
+// Push
+stack[index++] = 3;
 
-## 8. Stack, Queue, List, LinkedList
+// Pop
+var n = stack[--index];
+```
 
-Stack and Queue for DFS and BFS
+However, directly using the `Stack` class often communicates the intention of the code better.
 
-Fixed-size Stack is equivalent to using an array
+Sometimes you need quick operaions to the both ends of the collection, in this case, neither `Stack` nor `Queue` can meet your needs. You also can't use `List`, because although you can quickly access the end of a `List`, appending or removing from the beginning of the `List` require reindexing elements which is `O(n)`.
 
+What C# provides is the `LinkedList` class which represents a doubly-linked list. It has the methods `AddFirst`, `AddLast`, `RemoveFirst`, `RemoveLast`, and properties `First` and `Last` so that operations to both ends of the list if `O(l)`.
 
+`LinkedList` also provides `O(1)` removal operation for any element. This makes it a good underlying data structure for implementing a LRU cache (See [146. LRU Cache](https://leetcode.com/problems/lru-cache)):
 
-## 9. PriorityQueue, SortedSet
+```csharp
+public class LRUCache 
+{
+    LinkedList<(int Key, int Value)> _recent = new();
+    Dictionary<int, LinkedListNode<(int, int)>> _lookup = new();
+    int _capacity;
 
-Heap
+    public LRUCache(int capacity) => _capacity = capacity;
 
-## 10. Generators
+    public int Get(int key) 
+    {
+        if (!_lookup.ContainsKey(key))
+        {
+            return -1;
+        }
+
+        var value = _lookup[key].Value.Value;
+        Remove(key);
+        Add(key, value);
+        return value;
+    }
+    
+    public void Put(int key, int value) 
+    {
+        if (_lookup.ContainsKey(key))
+        {
+            Remove(key);
+        } 
+        else if (_recent.Count == _capacity)
+        {
+            RemoveLast();
+        }
+        Add(key, value);
+    }
+
+    void Remove(int key)
+    {
+        var node = _lookup[key];
+        _recent.Remove(node);
+        _lookup.Remove(key);
+    }
+
+    void Add(int key, int value)
+    {
+        _recent.AddFirst((key, value));
+        _lookup[key] = _recent.First;
+    }
+
+    void RemoveLast()
+    {
+        var last = _recent.Last;
+        _recent.Remove(last);
+        _lookup.Remove(last.Value.Key);
+    }
+}
+```
+
+## 7. `PriorityQueue`, `SortedSet`
+
+`PriorityQueue` was first introduced in dotnet 6.0. Before this, solving heap related problems can be a bit of pain. Now you can simply use `PriorityQueue` as a heap, since it is implemented by an array-based heap.
+
+The following code finds the k-th largest element in array, see [215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array)
+```csharp
+public int FindKthLargest(int[] nums, int k) 
+{
+    var pq = new PriorityQueue<int, int>(nums.Zip(nums.Select(n => -n)));
+    var result = 0;
+    while (--k >= 0)
+    {
+        result = pq.Dequeue();
+    }
+    return result;
+}
+```
+
+Before `PriorityQueue` as introduced, an altertive to it is a `SortedSet`, which has properties such as `Min` and `Max`. It is implemented as a self-balancing tree and thus has the same time complexity for insertion and removal operations, which is O(logn)
+
+`SortedSet` also provides some capabilities that `PriorityQueue` does not have. It allows you remove any elements in the set by the `Remove` method, not just the smallest or largest. It also allows you to access both the largest and smallest element at the same time.
+
+One caveat is `SortedSet` does not allow duplicate entries. To work around this, use a tuple containing both the element and its index:
+
+```csharp
+var inputs = new int[]{ 1, 2, 3, 3, 4, 5 };
+var set = new SortedSet<(int Element, int Index)>();
+
+for (var i = 0; i < inputs.Length; i++)
+{
+    set.Add((inputs[i], i));
+}
+```
+
+`SortedSet` will maintain the order correctly because tuples are compared by their fields in the order defined. In our case, when 2 elements have the same value, the index becomes a tie-breaker.
+
+## 8. Generators
 
 Generators are handy if you want to abstract some kind of iteration as a normal sequence. For example, you can write a generator method to do the BFS iteration of a binary tree, and becauese the result will be an IEnumerable, you can use LINQ to query the results just like normal IEnumerables. See [199. Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view):
 
@@ -354,7 +463,7 @@ Then, you can use the `Take` LINQ method to get the first `n` prime numbers:
 public IList<int> Primes(int n) => Primes().Take(n).ToList();
 ```
 
-## 11. `BigInteger`
+## 9. `BigInteger`
 
 You perhaps don't see this very often in your day-to-day work, but in LeetCode, quite a lot of integer related question will include some test cases that have extremely large inputs that will overflow the `int` type which represents a 32-bit integer.
 
@@ -364,25 +473,17 @@ Most of times you can solve this by using `long` type instead in the computation
 
 In these scenarios, the `BigInteger` type comes in handy. It is pretty much a drop-in replacement for `int`, because it has overridden all the arithmetic operators, and it also supports implicit conversion from a normal `int`. So, apart from declaring your variable as `BigInteger` and remembering to cast the final result back to `int`, there is really not much else to do.
 
-For example, the following `Factorial` method computes the factorial of a non-negative integer `n`, and returns the result as modulo of (10^9 + 7) since it can be very large (this is a common requirement in LeetCode questions).
+For example, we can modify our `Factorial` method to use `BigInteger`, and return the result as modulo of (10^9 + 7) which is a common requirement in LeetCode questions.
 
 ```csharp
-public int Factorial(int n)
-{
-    if (n <= 1)
-    {
-        return 1;
-    }
-    BigInteger result = 1;
-    for (var i = 2; i <= n; i++)
-    {
-        result *= i;
-    }
-    return (int)(result % 1_000_000_007);
-}
+public int Factorial(int n) => 
+    (int)(Enumerable.Range(1, n)
+        .Aggregate(
+            new BigInteger(1), 
+            (acc, cur) => acc * cur) % 1_000_000_007);
 ```
 
-## 12. `BitOperations`
+## 10. `BitOperations`
 
 Some questions require bit manipulations. The `BitOperations` class comes in handy. It defines static methods such as:
 
