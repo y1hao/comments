@@ -56,16 +56,16 @@ Also, you can use `..` to create a substring or subarray (ie. a [Range](https://
 
 ```csharp
 public bool RepeatedSubstringPattern(string s) 
+{
+    for (var i = 1; i <= s.Length / 2; i++)
     {
-        for (var i = 1; i <= s.Length / 2; i++)
+        if (s[i..^0] + s[0..i] == s)
         {
-            if (s[i..^0] + s[0..i] == s)
-            {
-                return true;
-            }
+            return true;
         }
-        return false;
     }
+    return false;
+}
 ```
 
 Here, `s[i..^0]` is the right part of string `s` beginning from the `i`th character (inclusive). `s[0..i]` is the left part of string `s` ending before the `i`th character (exclusive). 
