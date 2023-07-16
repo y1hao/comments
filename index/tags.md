@@ -2,13 +2,13 @@
 
 [Home](../README.md) | [Archive](./archive.md) | [Tags](./tags.md)
 
-All tags: [`algorithm`](./tags.md#algorithm), [`concurrency`](./tags.md#concurrency), [`csharp`](./tags.md#csharp), [`draft`](./tags.md#draft), [`fun`](./tags.md#fun), [`functional-programming`](./tags.md#functional-programming), [`go`](./tags.md#go), [`note`](./tags.md#note), [`pattern`](./tags.md#pattern), [`python`](./tags.md#python), [`react`](./tags.md#react), [`reference`](./tags.md#reference), [`typescript`](./tags.md#typescript), [`webAssembly`](./tags.md#webAssembly)
+All tags: [`algorithm`](./tags.md#algorithm), [`concurrency`](./tags.md#concurrency), [`csharp`](./tags.md#csharp), [`fun`](./tags.md#fun), [`functional-programming`](./tags.md#functional-programming), [`go`](./tags.md#go), [`note`](./tags.md#note), [`pattern`](./tags.md#pattern), [`python`](./tags.md#python), [`react`](./tags.md#react), [`reference`](./tags.md#reference), [`typescript`](./tags.md#typescript), [`webAssembly`](./tags.md#webAssembly)
 
 ## algorithm
 
 - __[Ten C# Features You Should Know to Write More Elegant LeetCode Solutions](../src/2023/7/15/leetcode_tricks_csharp/README.md)__
   _`2023-07-15`_
-  [`algorithm`](./tags.md#algorithm), [`csharp`](./tags.md#csharp), [`draft`](./tags.md#draft)
+  [`algorithm`](./tags.md#algorithm), [`csharp`](./tags.md#csharp)
 
 - __[The Go Implementation of LRU Cache](../src/2023/6/28/lru/README.md)__
   _`2023-06-28`_
@@ -26,7 +26,7 @@ All tags: [`algorithm`](./tags.md#algorithm), [`concurrency`](./tags.md#concurre
 
 - __[Ten C# Features You Should Know to Write More Elegant LeetCode Solutions](../src/2023/7/15/leetcode_tricks_csharp/README.md)__
   _`2023-07-15`_
-  [`algorithm`](./tags.md#algorithm), [`csharp`](./tags.md#csharp), [`draft`](./tags.md#draft)
+  [`algorithm`](./tags.md#algorithm), [`csharp`](./tags.md#csharp)
 
 - __[Avoid Race Conditions and Invalid States with Immutability](../src/2023/6/25/avoid_race_condition_with_immutability/README.md)__
   _`2023-06-25`_
@@ -35,13 +35,6 @@ All tags: [`algorithm`](./tags.md#algorithm), [`concurrency`](./tags.md#concurre
 - __[Make a Python-Style `range` in C# with Tuples and Duck Typing](../src/2023/6/24/python_style_range/README.md)__
   _`2023-06-24`_
   [`csharp`](./tags.md#csharp), [`fun`](./tags.md#fun)
-
-
-## draft
-
-- __[Ten C# Features You Should Know to Write More Elegant LeetCode Solutions](../src/2023/7/15/leetcode_tricks_csharp/README.md)__
-  _`2023-07-15`_
-  [`algorithm`](./tags.md#algorithm), [`csharp`](./tags.md#csharp), [`draft`](./tags.md#draft)
 
 
 ## fun

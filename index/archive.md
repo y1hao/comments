@@ -5,7 +5,7 @@
 ## 2023
 - __[Ten C# Features You Should Know to Write More Elegant LeetCode Solutions](../src/2023/7/15/leetcode_tricks_csharp/README.md)__
   _`2023-07-15`_
-  [`algorithm`](./tags.md#algorithm), [`csharp`](./tags.md#csharp), [`draft`](./tags.md#draft)
+  [`algorithm`](./tags.md#algorithm), [`csharp`](./tags.md#csharp)
 
 - __[A Pitfall when Using `useState` for Loading a Function](../src/2023/7/6/usestate_with_function/README.md)__
   _`2023-07-06`_

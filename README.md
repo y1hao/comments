@@ -2,6 +2,11 @@
 
 [Home](./README.md) | [Archive](index/archive.md) | [Tags](index/tags.md)
 
+- __[Ten C# Features You Should Know to Write More Elegant LeetCode Solutions](src/2023/7/15/leetcode_tricks_csharp/README.md)__
+  _`2023-07-15`_
+  [`algorithm`](index/tags.md#algorithm), [`csharp`](index/tags.md#csharp)
+
+  > 10 tricks I learned from solving 200+ LeetCode problems in C#, which can help you write solutions in a more elegant and idiomatic way.
 - __[A Pitfall when Using `useState` for Loading a Function](src/2023/7/6/usestate_with_function/README.md)__
   _`2023-07-06`_
   [`react`](index/tags.md#react), [`webAssembly`](index/tags.md#webAssembly)
